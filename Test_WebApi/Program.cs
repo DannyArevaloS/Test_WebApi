@@ -25,6 +25,8 @@ app.UseHttpsRedirection();
 
 app.MapGet("/", () =>
 {
+    string nombre = "Danny";
+    Console.WriteLine($"@@@darevals -> Hola como estas {nombre}, se esta ejecutando el endpoint");
     return "Hola equipo Zaragoza";
 });
 
@@ -39,6 +41,7 @@ app.MapGet("/todoitems/{id}", async (int id, TodoDb db) =>
         is Todo todo
             ? Results.Ok(todo)
             : Results.NotFound());
+
 
 app.MapPost("/todoitems", async (Todo todo, TodoDb db) =>
 {
